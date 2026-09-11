@@ -10,3 +10,8 @@ work/
 tools/skill_to_platform.py
 # this machine's repository list; it may name private repositories
 data/instance.json
+# repository topology of this workspace — local canon (see CLAUDE.md), names private repos
+topology.md
+topology.schema.md
+topology.yaml
+.topology-report.json
