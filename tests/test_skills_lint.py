@@ -44,5 +44,5 @@ def test_only_the_conformant_fixtures_conform(fix):
     """Every fixture but `good` and `triggers-plural` breaks exactly one rule."""
     rc, out = run("skills_lint.py", fix / "skills")
     assert rc == 1
-    trees = [p for p in (fix / "skills").iterdir() if p.is_dir()]
-    assert f"2/{len(trees)} skills conform" in out, out
+    found = list((fix / "skills").glob("*/skills/*/SKILL.md"))  # `empty` holds none
+    assert f"2/{len(found)} skills conform" in out, out
