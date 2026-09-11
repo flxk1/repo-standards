@@ -14,6 +14,7 @@ from conftest import run
 
 CASES = {
     "good": (0, "1/1 skills conform"),
+    "triggers-plural": (0, "1/1 skills conform"),  # "Triggers on …" is a trigger clause too
     "no-frontmatter": (1, "no frontmatter"),
     "bad-yaml": (1, "frontmatter is not valid YAML"),
     "extra-key": (1, "key not in standard: version"),

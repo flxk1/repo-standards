@@ -15,7 +15,7 @@ from pathlib import Path
 ALLOWED = {"name", "description", "license", "allowed-tools", "metadata", "compatibility",
            "governance"}  # governance: the skill-governance-block binding (flxk1/skill-governance-block); runtimes ignore it
 NAME_RE = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
-WHEN_RE = re.compile(r"\b(use (this )?(skill )?when|when (the )?user|trigger|use for|use it (to|when)|activates?|should be used when)\b", re.I)
+WHEN_RE = re.compile(r"\b(use (this )?(skill )?when|when (the )?user|triggers?|use for|use it (to|when)|activates?|should be used when)\b", re.I)
 PLATFORM_ROOT = re.compile(r"\$\{?CLAUDE_PLUGIN_ROOT\}?|~/\.claude/|\.claude-plugin/")
 REL_PATH = re.compile(r"(?<![\w/.$])((?:references|scripts|assets|docs)/[A-Za-z0-9_./-]+)")
 SKIP_DIRS = {"node_modules", ".venv", "venv", "work", "_archive", ".git", "__pycache__", ".circle", ".cube"}
