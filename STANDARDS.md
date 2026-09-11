@@ -134,5 +134,5 @@ muscle memory and scriptable.
 
 `main.yml` green = the repo's own definition of done holds on a clean
 checkout. A red main.yml is information, not shame — it is allowed to start
-red when it makes real drift visible (see ctrl-engineering), and the fix is a
+red when it makes real drift visible, and the fix is a
 code change, never a gate deletion.
