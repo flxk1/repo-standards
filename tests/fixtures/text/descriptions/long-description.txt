@@ -1,0 +1,1 @@
+Check one repo against the README canon and report every rule it breaks, naming the word count, the head sha, the section order it used and the plan row it was compared against.

@@ -1,0 +1,25 @@
+version = 1
+SPDX-PackageName = "repo-standards"
+SPDX-PackageSupplier = "Organization: flxk1"
+
+# Licence + copyright for files that cannot carry an inline SPDX header: Markdown
+# and YAML prose that is itself the published rule text, JSON which has no comment
+# syntax, and the test fixtures, whose bytes are compared against generated output.
+
+[[annotations]]
+path = ["README.md", "STANDARDS.md", "topology.md", "topology.schema.md", "contributing.md", "SECURITY.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 flxk1"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["data/family.json", "topology.yaml", "NOTICE", ".gitignore"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 flxk1"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "tests/fixtures/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 flxk1"
+SPDX-License-Identifier = "Apache-2.0"

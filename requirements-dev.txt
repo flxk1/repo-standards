@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 flxk1
+# The tools are stdlib-only; the tests need a runner, and PyYAML to exercise the
+# real-YAML branch of skills_lint (absent, that branch is skipped, not failed).
+pytest==9.1.1
+PyYAML==6.0.2

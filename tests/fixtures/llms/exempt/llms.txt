@@ -1,0 +1,5 @@
+# Loomground
+
+> Hand-written guide, exempt from generation.
+
+See standard/spec/SPEC.md for the normative text.

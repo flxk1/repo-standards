@@ -1,0 +1,21 @@
+# ok
+
+> Generate llms.txt from a README.
+
+## Problem
+Without this repo, agents read the whole tree to learn the interface.
+
+## Install
+    pip install ok
+
+## Usage
+Run the generator against a repo directory.
+
+## Contracts
+- input: README.md
+- output: llms.txt
+
+## Family
+Consumed by every repo in the family.
+
+Language: loomground — guide https://github.com/flxk1/loomground/blob/main/llms.txt (the .lg language an agent reads, emits, validates); catalogue https://github.com/flxk1/loomground/blob/main/CATALOGUE.json

@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+work/
+.topology-report.json
+
+# moving to loomground-mcp/hosts/ (owned by another session); not part of this repo
+tools/skill_to_platform.py

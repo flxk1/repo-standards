@@ -1,0 +1,105 @@
+{
+  "_": "Fixture family: every repo here isolates one README-canon rule.",
+  "description_max": 160,
+  "plan": "plan.md",
+  "descriptions": "descriptions",
+  "budgets": {
+    "spec": 450,
+    "measure": 220
+  },
+  "language_repos": [
+    "no-language",
+    "no-card",
+    "lang-exempt"
+  ],
+  "language_card_exempt": [
+    "lang-exempt"
+  ],
+  "text": {
+    "search": [
+      "{name}"
+    ]
+  },
+  "repos": [
+    {
+      "name": "conformant",
+      "kind": "spec"
+    },
+    {
+      "name": "over-budget",
+      "kind": "measure"
+    },
+    {
+      "name": "two-negations",
+      "kind": "spec"
+    },
+    {
+      "name": "marketing",
+      "kind": "spec"
+    },
+    {
+      "name": "bad-h1",
+      "kind": "spec"
+    },
+    {
+      "name": "no-family",
+      "kind": "spec"
+    },
+    {
+      "name": "wrong-order",
+      "kind": "spec"
+    },
+    {
+      "name": "badge-emoji",
+      "kind": "spec"
+    },
+    {
+      "name": "no-problem",
+      "kind": "spec"
+    },
+    {
+      "name": "problem-drift",
+      "kind": "spec"
+    },
+    {
+      "name": "no-example",
+      "kind": "spec"
+    },
+    {
+      "name": "example-no-in-out",
+      "kind": "spec"
+    },
+    {
+      "name": "no-description",
+      "kind": "spec"
+    },
+    {
+      "name": "long-description",
+      "kind": "spec"
+    },
+    {
+      "name": "llms-drift",
+      "kind": "spec"
+    },
+    {
+      "name": "llms-missing",
+      "kind": "spec"
+    },
+    {
+      "name": "no-language",
+      "kind": "spec"
+    },
+    {
+      "name": "no-card",
+      "kind": "spec"
+    },
+    {
+      "name": "lang-exempt",
+      "kind": "spec"
+    },
+    {
+      "name": "no-readme",
+      "kind": "spec"
+    }
+  ]
+}

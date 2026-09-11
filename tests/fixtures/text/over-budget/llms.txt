@@ -1,0 +1,21 @@
+# over-budget
+
+> Check one repo against the README canon.
+
+## Problem
+Without this repo, the canon is prose and not a gate.
+
+## Install
+    pip install over-budget
+
+## Usage
+Run the tool against a repo directory and read the row it prints. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks. The row names the repo, the head sha, the word count and every rule the README breaks.
+
+## Contracts
+- input: a repo directory
+- output: one row per repo
+
+## Family
+Consumed by every repo in the family.
+
+Language: loomground — guide https://github.com/flxk1/loomground/blob/main/llms.txt (the .lg language an agent reads, emits, validates); catalogue https://github.com/flxk1/loomground/blob/main/CATALOGUE.json
