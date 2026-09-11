@@ -85,6 +85,9 @@ def row(name: str, d: Path | None, sets: dict):
 
 
 def render(rows) -> str:
+    if not rows:
+        print("no repositories listed — a sweep needs an instance file (see data/instance.example.json)")
+        return 2
     w = max(len(r[0]) for r in rows)
     out = []
     for r in rows:

@@ -150,6 +150,9 @@ def row(name: str, res, sha: str):
 
 
 def render(rows, total=True) -> str:
+    if not rows:
+        print("no repositories listed — a sweep needs an instance file (see data/instance.example.json)")
+        return 2
     w = max(len(r[0]) for r in rows)
     out = [f"{r[0]:<{w}}  {r[1]:<24} {r[2]}" for r in rows]
     if total:
