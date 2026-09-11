@@ -19,7 +19,7 @@ GitHub serves these to every repo that does not carry its own copy:
 - `.github/ISSUE_TEMPLATE/` — bug + idea forms, config routing questions to email.
 - Funding is a per-account choice and currently intentionally absent (this
   workspace monetises by commercial licence, not sponsorship).
-- The profile storefront lives in `flxk1/flxk1` (readme), not here.
+- The account profile page (its own repository, named after the account) is the storefront, not here.
 
 ## Layer 1 — identical in every repo
 

@@ -29,3 +29,5 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m pytest -q
+        env:
+          GITHUB_TOKEN: ${{ github.token }}  # lifts the anonymous rate limit on the leakage check
