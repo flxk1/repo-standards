@@ -34,6 +34,16 @@ def git(d: Path, *args: str) -> str:
     return subprocess.run(["git", "-C", str(d), *args], capture_output=True, text=True).stdout.strip()
 
 
+def ignored(d: Path, names: set[str]) -> set[str]:
+    """Root entries git ignores. They exist only in a working copy, so they say nothing
+    about the published layout; a CI clone has none of them."""
+    if not names or not (d / ".git").exists():
+        return set()
+    out = subprocess.run(["git", "-C", str(d), "check-ignore", "--", *sorted(names)],
+                         capture_output=True, text=True).stdout.split()
+    return {Path(x).parts[0] for x in out}
+
+
 def check_root(d: Path, sets: dict):
     """Repo-relative skeleton check. Returns (state, detail, dirty, branch, sha)."""
     common, leave, forbid = (set(sets.get(k, [])) for k in ("common", "leave", "forbid"))
@@ -41,6 +51,7 @@ def check_root(d: Path, sets: dict):
     sha = git(d, "log", "-1", "--format=%h %s")[:60]
     dirty = git(d, "status", "--short")
     root = {p.name for p in d.iterdir()}
+    root -= ignored(d, root)  # a build artefact a CI clone never sees is not a layout deviation
     bad = sorted(root & forbid)
     missing = sorted(common - root)
     unknown = sorted(root - common - leave - forbid)
