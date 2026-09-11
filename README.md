@@ -59,4 +59,3 @@ root entries, the description limit. It names no repository and no machine path.
 `data/instance.json` says which repositories exist and where they are; it is local
 (gitignored) because it may name private repositories. Copy
 `data/instance.example.json` to start one, or pass your own with `--repos`.
-see flxk1/loomground-team for the roles
