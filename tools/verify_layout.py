@@ -38,7 +38,9 @@ def _with_rules(fam: dict) -> dict:
 
 def load_family(path: Path):
     import json
-    fam = _with_rules(json.loads(Path(path).read_text()))
+    # single-repo mode needs only the rules; a sweep needs an instance file naming the repositories
+    raw = json.loads(Path(path).read_text()) if Path(path).exists() else {}
+    fam = _with_rules(raw)
     base = Path(path).resolve().parent
     root = Path(fam.get("root") or base)
     if not root.is_absolute():
@@ -94,7 +96,7 @@ def render(rows) -> str:
 
 def sweep(fam: dict, root: Path) -> list[tuple]:
     cfg = fam["layout"]
-    dirs = {e["name"]: e.get("dir", e["name"]) for e in fam["repos"]}
+    dirs = {e["name"]: e.get("dir", e["name"]) for e in fam.get("repos", [])}
     rows = []
     for source in ("worktrees", "clones"):
         tmpl = cfg["search"]["worktree" if source == "worktrees" else "clone"]

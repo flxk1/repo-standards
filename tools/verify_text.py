@@ -49,7 +49,9 @@ def _with_rules(fam: dict) -> dict:
 
 
 def load_family(path: Path):
-    fam = _with_rules(json.loads(Path(path).read_text()))
+    # single-repo mode needs only the rules; a sweep needs an instance file naming the repositories
+    raw = json.loads(Path(path).read_text()) if Path(path).exists() else {}
+    fam = _with_rules(raw)
     base = Path(path).resolve().parent
     root = Path(fam.get("root") or base)
     if not root.is_absolute():
@@ -166,7 +168,7 @@ def sweep(fam: dict, root: Path) -> list[tuple]:
     ddir = root / fam["descriptions"] if fam.get("descriptions") else None
     ddir = ddir if ddir and ddir.exists() else None
     rows = []
-    for e in fam["repos"]:
+    for e in fam.get("repos", []):
         name = e["name"]
         d = resolve(root, search, e)
         sub = {"name": name, "dir": e.get("dir", name)}
@@ -203,7 +205,7 @@ def main(argv: list[str]) -> int:
     else:
         d = Path(a.repo).resolve()
         name = a.name or d.name
-        e = next((x for x in fam["repos"] if x["name"] == name), {})
+        e = next((x for x in fam.get("repos", []) if x["name"] == name), {})
         kind = a.kind or e.get("kind", DEFAULT_KIND)
         desc_len = None
         if a.descriptions:
