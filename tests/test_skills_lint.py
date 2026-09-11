@@ -40,7 +40,9 @@ def test_rule(fix, name):
 
 
 @yaml_required
-def test_good_tree_is_the_only_conformant_one(fix):
+def test_only_the_conformant_fixtures_conform(fix):
+    """Every fixture but `good` and `triggers-plural` breaks exactly one rule."""
     rc, out = run("skills_lint.py", fix / "skills")
     assert rc == 1
-    assert "1/11 skills conform" in out
+    trees = [p for p in (fix / "skills").iterdir() if p.is_dir()]
+    assert f"2/{len(trees)} skills conform" in out, out
