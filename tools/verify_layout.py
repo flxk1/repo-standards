@@ -101,8 +101,11 @@ def sweep(fam: dict, root: Path) -> list[tuple]:
     cfg = fam["layout"]
     dirs = {e["name"]: e.get("dir", e["name"]) for e in fam.get("repos", [])}
     rows = []
+    search = cfg.get("search")
+    if not search:  # no instance file: nothing to sweep, single-repo mode still works
+        return rows
     for source in ("worktrees", "clones"):
-        tmpl = cfg["search"]["worktree" if source == "worktrees" else "clone"]
+        tmpl = search["worktree" if source == "worktrees" else "clone"]
         for name in cfg.get(source, []):
             d = root / tmpl.format(name=name, dir=dirs.get(name, name))
             rows.append(row(name, d if d.exists() else None, cfg))
