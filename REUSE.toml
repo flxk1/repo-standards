@@ -13,7 +13,7 @@ SPDX-FileCopyrightText = "2026 flxk1"
 SPDX-License-Identifier = "CC-BY-4.0"
 
 [[annotations]]
-path = ["data/family.json", "topology.yaml", "NOTICE", ".gitignore"]
+path = ["data/rules.json", "data/instance.example.json", "topology.yaml", "NOTICE", ".gitignore"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 flxk1"
 SPDX-License-Identifier = "Apache-2.0"

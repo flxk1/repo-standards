@@ -51,3 +51,11 @@ every check the tools make.
 ## License
 
 Apache-2.0 for the tools and tests, CC-BY-4.0 for the rule text.
+
+## Data
+
+`data/rules.json` is the rule set: budgets, the skeleton's allowed and forbidden
+root entries, the description limit. It names no repository and no machine path.
+`data/instance.json` says which repositories exist and where they are; it is local
+(gitignored) because it may name private repositories. Copy
+`data/instance.example.json` to start one, or pass your own with `--repos`.

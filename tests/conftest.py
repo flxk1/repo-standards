@@ -10,7 +10,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
-DATA = ROOT / "data" / "family.json"
+DATA = ROOT / "data" / "instance.example.json"
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 sys.path.insert(0, str(TOOLS))
 

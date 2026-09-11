@@ -12,17 +12,33 @@ reported as unknown (a listing the skeleton does not rule on). Exit 1 on any DEV
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-FAMILY = HERE.parent / "data" / "family.json"
+RULES = HERE.parent / "data" / "rules.json"
+FAMILY = HERE.parent / "data" / "instance.json"  # this machine's repo list; see instance.example.json
+
+
+def _with_rules(fam: dict) -> dict:
+    """Generic rules live in data/rules.json; the instance file names repositories and paths."""
+    if RULES.exists():
+        rules = json.loads(RULES.read_text())
+        for k, v in rules.items():
+            if k == "_":
+                continue
+            if k == "layout" and isinstance(fam.get("layout"), dict):
+                fam["layout"] = {**v, **fam["layout"]}
+            else:
+                fam.setdefault(k, v)
+    return fam
 
 
 def load_family(path: Path):
     import json
-    fam = json.loads(Path(path).read_text())
+    fam = _with_rules(json.loads(Path(path).read_text()))
     base = Path(path).resolve().parent
     root = Path(fam.get("root") or base)
     if not root.is_absolute():

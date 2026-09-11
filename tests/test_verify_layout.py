@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright 2026 flxk1
-"""Skeleton root sets: one fixture repo per deviation class, checked against data/family.json."""
+"""Skeleton root sets: one fixture repo per deviation class, checked against the repository data."""
 import json
 
 import pytest
@@ -44,7 +44,7 @@ def test_sweep_reads_the_repo_list(fix, tmp_path):
 def test_unknown_root_entry_is_reported(fix):
     import verify_layout
 
-    sets = json.loads(DATA.read_text())["layout"]
+    sets = verify_layout.load_family(DATA)[0]["layout"]  # rules.json merged into the instance
     state, detail, *_ = verify_layout.check_root(fix / "layout" / "unknown", sets)
     assert state == "OK" and "unknown=['attic']" in detail
 
@@ -52,6 +52,6 @@ def test_unknown_root_entry_is_reported(fix):
 def test_check_root_is_importable(fix):
     import verify_layout
 
-    sets = json.loads(DATA.read_text())["layout"]
+    sets = verify_layout.load_family(DATA)[0]["layout"]  # rules.json merged into the instance
     state, detail, dirty, br, sha = verify_layout.check_root(fix / "layout" / "good", sets)
     assert state == "OK" and detail == "forbidden=[] missing=[] unknown=[]"

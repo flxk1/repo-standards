@@ -1,0 +1,45 @@
+{
+  "_": "Copy to data/instance.json and edit. `root` is where the repositories live — an absolute path, or a path relative to this file. Keep instance.json out of a public repository when it names private repositories.",
+  "root": ".",
+  "plan": "_local/github-presence/README-PROBLEM-PLAN.md",
+  "descriptions": "_local/github-presence/descriptions",
+  "language_repos": [
+    "loomground"
+  ],
+  "language_card_exempt": [
+    "loomground-governance"
+  ],
+  "text": {
+    "search": [
+      "_local/worktrees/{dir}/presence",
+      "_local/clones/{name}",
+      "loomground-repos/{name}"
+    ],
+    "llms_search": [
+      "_local/worktrees/{dir}/llms"
+    ],
+    "skills_dir": "_local/worktrees/{dir}/langskill/skills"
+  },
+  "layout": {
+    "search": {
+      "worktree": "_local/worktrees/{dir}/presence",
+      "clone": "_local/clones/{name}"
+    },
+    "worktrees": [
+      "loomground",
+      "loomground-escalation"
+    ],
+    "clones": []
+  },
+  "repos": [
+    {
+      "name": "loomground",
+      "kind": "spec",
+      "dir": "Loomground Core"
+    },
+    {
+      "name": "loomground-escalation",
+      "kind": "measure"
+    }
+  ]
+}
