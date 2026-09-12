@@ -35,5 +35,5 @@ issues, and reviewing pull requests are all valued.
 - Present solutions rather than questions where you can.
 - Be patient, then bump politely.
 
-Some repos carry a CLA (RVND) — the repo's own contributing file takes
+Some repositories carry a CLA; the repository's own contributing file takes
 precedence over this default wherever both exist.

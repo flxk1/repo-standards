@@ -14,8 +14,8 @@ GitHub serves these to every repo that does not carry its own copy:
 
 - `contributing.md` — the contribution policy (maintainer-time protection).
 - `code-of-conduct.md` — Contributor Covenant v2.1, contact `f@nullpunktrec.eu`.
-- `SECURITY.md` — default private-disclosure policy. Repos with their own
-  (RVND, solver, versum) keep precedence.
+- `SECURITY.md` — default private-disclosure policy. A repository's own
+  security policy takes precedence.
 - `.github/ISSUE_TEMPLATE/` — bug + idea forms, config routing questions to email.
 - Funding is a per-account choice and currently intentionally absent (this
   workspace monetises by commercial licence, not sponsorship).
@@ -28,7 +28,7 @@ GitHub serves these to every repo that does not carry its own copy:
    (`release-please.yml`), CodeQL, and other workflows live beside it under
    their own names. The workflow stays thin — the repo's own gates/tests do the
    work.
-2. **Commit discipline** (CI-enforced in RVND, deontic, governance; the norm
+2. **Commit discipline** (CI-enforced in core repositories; the norm
    everywhere): subject ≤ 72 chars; AI assistance is attributed in the body as
    `Assisted by Claude (Anthropic).`
    — never as a `Co-Authored-By` trailer. Squash-merge; atomic commits allowed.
@@ -40,7 +40,7 @@ GitHub serves these to every repo that does not carry its own copy:
    imperative sentence; **topics** are filled in. The account listing is the
    catalog.
 4. **Licensing**: product repos are REUSE-compliant — SPDX header in every
-   file, `LICENSES/` dir, `NOTICE`, `REUSE.toml`. Pre-licence repos (rvnd-*)
+   file, `LICENSES/` dir, `NOTICE`, `REUSE.toml`. Pre-licence repositories
    carry the uniform header
    `Copyright 2026 flxk1 - all rights reserved. License to be determined.`
    until the licence is decided.
@@ -68,15 +68,15 @@ GitHub serves these to every repo that does not carry its own copy:
      stay out of the wheel (the Python `files` whitelist).
    - **Import-time purity is part of the contract**: importing the package
      reads no env, disk, or network. Host couplings ride an optional extra
-     (`[rvnd]`), and entry points (`rvnd.verticals`) are the only sanctioned
+   (`[host]`), and namespaced entry points (`loomground.adapters`) are the only sanctioned
      ambient discovery — declared in the manifest, where they are visible
      and auditable, never hidden in code.
 6. **Shared tooling is consumed, not vendored.** Lint/test/gate configuration
    enters a repo as a dependency or a reusable action, not as a copied file.
    (Known standing violation: `tools/supply_chain_gate.py` is vendored in nine
    repos and drifting — its extraction target is this repo.)
-7. **Actions pinned**: by full commit SHA with a version comment (house style
-   in deontic/rvnd-plugins); tag-pins are the accepted minimum, SHA-pinning is
+7. **Actions pinned**: by full commit SHA with a version comment; tag-pins are
+   the accepted minimum, SHA-pinning is
    the hardening step.
 8. **Releases**: repos that release carry `RELEASING.md` + release automation
    (release-please) + a `CHANGELOG.md`. Governance-grade repos keep the
