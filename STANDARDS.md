@@ -40,7 +40,8 @@ GitHub serves these to every repo that does not carry its own copy:
    imperative sentence; **topics** are filled in. The account listing is the
    catalog.
 4. **Licensing**: product repos are REUSE-compliant — SPDX header in every
-   file, `LICENSES/` dir, `NOTICE`, `REUSE.toml`. Pre-licence repositories
+   file, a root `LICENSE` for GitHub detection, `LICENSES/` dir, `NOTICE`,
+   `REUSE.toml`. Pre-licence repositories
    carry the uniform header
    `Copyright 2026 flxk1 - all rights reserved. License to be determined.`
    until the licence is decided.

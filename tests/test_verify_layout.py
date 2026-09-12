@@ -9,7 +9,7 @@ from conftest import DATA, run
 
 CASES = {
     "good": (0, []),
-    "forbidden": (1, ["forbidden=['LICENSE', 'scripts']"]),
+    "forbidden": (1, ["forbidden=['scripts']"]),
     "missing": (1, ["missing=['NOTICE', 'REUSE.toml']"]),
     "unknown": (0, []),        # an unlisted root entry is reported, not a deviation
 }
