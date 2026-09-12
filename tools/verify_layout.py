@@ -104,8 +104,10 @@ def sweep(fam: dict, root: Path) -> list[tuple]:
     search = cfg.get("search")
     if not search:  # no instance file: nothing to sweep, single-repo mode still works
         return rows
-    for source in ("worktrees", "clones"):
-        tmpl = search["worktree" if source == "worktrees" else "clone"]
+    for source, key in (("worktrees", "worktree"), ("clones", "clone"), ("roots", "root")):
+        tmpl = search.get(key)
+        if not tmpl:
+            continue
         for name in cfg.get(source, []):
             d = root / tmpl.format(name=name, dir=dirs.get(name, name))
             rows.append(row(name, d if d.exists() else None, cfg))
